@@ -90,14 +90,18 @@ var update = function (modifier) {
 	}
 	if (37 in keysDown) { // Player holding left
 		hero.x -= hero.speed * modifier;
+		// hero.y += 12*Math.sin(hero.x/2.3)*modifier;;
 	}
 	if (39 in keysDown) { // Player holding right
 		hero.x += hero.speed * modifier;
+		// hero.y += 12*Math.sin(hero.x/2.3)*modifier;;
 	}
+
 
 	// Are they touching?
 	dogs.forEach(function(dog, i, dogs){
 		dog.x+= 14*modifier;
+		dog.y+= 18*Math.sin(dog.x/2.3)*modifier;
 
 		if (
 			hero.x <= (dog.x+32)
