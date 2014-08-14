@@ -39,12 +39,12 @@ dogHouseImage.src = "images/doghouse.png";
 
 // Game objects
 var hero = {
-	speed: 16 // movement in pixels per second
+	speed: 18 // movement in pixels per second
 };
 
 var dogs = [];
-var dogsCaught = 0;
-var dogsCount = 0;
+var lvl = 1;
+var dogsCount = 1;
 
 // Handle keyboard controls
 var keysDown = {};
@@ -68,7 +68,7 @@ function init() {
 
 // Reset the game when the player catches a dog
 function reset() {
-	dogsCount++;
+	dogsCount = Math.round(Math.log(3*lvl) + Math.abs(Math.sin(lvl))* lvl/3);
 	// Throw the dog somewhere on the screen randomly
 	for(var i = 0; i<dogsCount; i++){
 		dogs.push({})
@@ -82,6 +82,8 @@ function reset() {
 
 // Update game objects
 var update = function (modifier) {
+	modifier += 0.002*lvl;
+
 	if (38 in keysDown) { // Player holding up
 		hero.y -= hero.speed * modifier;
 	}
@@ -114,8 +116,8 @@ var update = function (modifier) {
 		}
 	});
 
-	if (!dogs.length) {
-		++dogsCaught;
+	if (dogs.length === 0) {
+		lvl+=1;
 		reset();
 	}
 };
@@ -145,7 +147,7 @@ var render = function () {
 	ctx.font = "68px Unkempt";
 	ctx.textAlign = "left";
 	ctx.textBaseline = "top";
-	ctx.fillText("Jitter: lvl" + (dogsCaught+1), 32, 0);
+	ctx.fillText("Jitter: lvl" + lvl, 32, 0);
 };
 
 // The main game loop
