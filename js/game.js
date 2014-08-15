@@ -59,7 +59,7 @@ addEventListener("keyup", function (e) {
 
 function init() {
 	hero.x = canvas.width-250;
-	hero.y = canvas.height-330;
+	hero.y = canvas.height-300;
 
 	// Throw the dog somewhere on the screen randomly
 	reset();
@@ -139,7 +139,7 @@ var render = function () {
 	}
 
 	if (dogHouseReady) {
-		ctx.drawImage(dogHouseImage, canvas.width-250, canvas.height-325);
+		ctx.drawImage(dogHouseImage, canvas.width-250, canvas.height-305);
 	}
 
 	// Score
