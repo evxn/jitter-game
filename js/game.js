@@ -144,7 +144,7 @@ var render = function () {
 
 	// Score
 	ctx.fillStyle = "rgb(255, 50, 0)";
-	ctx.font = "bold 50pt Unkempt";
+	ctx.font = "50pt Unkempt";
 	ctx.textAlign = "left";
 	ctx.textBaseline = "top";
 	ctx.fillText("Jitter House: lvl" + lvl, 32, 0);
