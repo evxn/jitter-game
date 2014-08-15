@@ -58,8 +58,8 @@ addEventListener("keyup", function (e) {
 }, false);
 
 function init() {
-	hero.x = canvas.width-160;
-	hero.y = canvas.height-140;
+	hero.x = canvas.width-250;
+	hero.y = canvas.height-330;
 
 	// Throw the dog somewhere on the screen randomly
 	reset();
@@ -139,15 +139,15 @@ var render = function () {
 	}
 
 	if (dogHouseReady) {
-		ctx.drawImage(dogHouseImage, canvas.width-160, canvas.height-230);
+		ctx.drawImage(dogHouseImage, canvas.width-250, canvas.height-325);
 	}
 
 	// Score
 	ctx.fillStyle = "rgb(255, 50, 0)";
-	ctx.font = "68px Unkempt";
+	ctx.font = "bold 50pt Unkempt";
 	ctx.textAlign = "left";
 	ctx.textBaseline = "top";
-	ctx.fillText("Jitter: lvl" + lvl, 32, 0);
+	ctx.fillText("Jitter House: lvl" + lvl, 32, 0);
 };
 
 // The main game loop
